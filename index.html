@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refresher</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="icon-01.ico" type="image/x-icon">
+</head>
+
+<body>
+
+    <div id="linktoolFull" class="blurback centerTop d-none">
+        <div id="linktool" class="linktool">
+            <div class="closeButtonHolder">
+                <button onclick="closeWindow('linktoolFull')" class="closeButton">X</button>
+            </div>
+            <h2 class="text-center">Links To Open</h2>
+            <ul>
+                <li>
+                    <div class="linkHolder ">
+                        <p id="link0">
+                            link 1 </p>
+                    </div>
+                    <button onclick="selectLink(link0)">Edit</button>
+                </li>
+                <li>
+                    <div class="linkHolder ">
+                        <p id="link1">
+                            link 2 </p>
+                    </div>
+                    <button onclick="selectLink(link1)">Edit</button>
+                </li>
+                <li>
+
+                    <div class="linkHolder ">
+                        <p id="link2">
+                            link 3 </p>
+                    </div>
+                    <button onclick="selectLink(link2)">Edit</button>
+                </li>
+                <li>
+                    <div class="linkHolder ">
+                        <p id="link3">
+                            link 4 </p>
+                    </div>
+                    <button onclick="selectLink(link3)">Edit</button>
+                </li>
+                <li>
+                    <div class="linkHolder ">
+                        <p id="link4">
+                            link 5 </p>
+                    </div>
+                    <button onclick="selectLink(link4)">Edit</button>
+                </li>
+            </ul>
+
+            <div style="display: none;" class="linkEditor" id="linkEditTextSection">
+                <input class="textFiled" id="linkEditText" onclick="heilightText(linkEditText)" type="url">
+
+
+                <button onclick="saveLink()">Save Link</button>
+            </div>
+
+            <h4 class="ms-10">setting time limits</h4>
+            <div class="timeLimits">
+                <div class="timeHolders">
+                    <div class="d-inline-block  mt-10 fullTextHolder me-10">
+                        <label for="minValue">Min value</label>
+                        <input type="number" min="2" class="textFiled mobile-with-auto" placeholder="min Value"
+                            id="minValue">
+                    </div>
+
+                    <div class="d-inline-block  mt-10 fullTextHolder">
+
+                        <label for="maxValue">Max value</label>
+                        <input type="number" max="58" class="textFiled mobile-with-auto" placeholder="max Value"
+                            id="maxValue"><br>
+                    </div>
+
+                </div>
+                <div class="row flex p-10">
+                    <button class="ms-auto" onClick="setValues()">Set Values</button>
+                </div>
+            </div>
+
+            <p class="m-10-b-15" id="refreshDetails">Loading Detais....</p>
+            <p onclick="contactDeveloper()" class="contactFooter">Contact Developer : Shehan</p>
+        </div>
+    </div>
+
+    <!-- link Adder -->
+    <div id="linkAdderFull" class="blurback centerTop d-none">
+        <div id="linkAdder" class=" linkAdder">
+
+
+
+            <div class="header">Add New Link
+                <div onclick="closeWindow('linkAdderFull')" class="addLinkClose">X</div>
+            </div>
+
+            <div class="linkAdderBody">
+                <div class="holders">
+                    <label for="title">Link Title</label>
+                    <input type="text" id="title" class="textFiled">
+                    <div class="mt-5"></div>
+                    <label for="newlink">Link </label>
+                    <input type="text" id="newLink" class="textFiled">
+                </div>
+                <div class="buttonHolder mt-10">
+                    <button onclick="closeWindow('linkAdderFull')"> Cancel</button>
+                    <button onclick="saveQuickLink()"> Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="homeWrapper">
+        <div class="centerHolder paddingHoder">
+            <div class="searchArea center">
+                <h2 class="mt-50">WELCOME</h2>
+                <input class="textFiled searchText" id="searchText" type="text" placeholder=" Search Here....."
+                    placeholder="Search Anything....">
+                <div class="buttonHolder">
+                    <button onclick="openGoogle()">Google Search</button>
+                    <button onclick="openYoutube()">YouTube Search</button>
+                    <button onclick="openChatGPT()">Open ChatGPT Temp</button>
+                    <button onclick="searchInAll()">Search In All</button>
+                </div>
+            </div>
+
+        </div>
+        <div id="quickLinks" class="quickLinks centerHolder flex mt-25">
+            <!-- QUICK LINK HOLDER -->
+
+
+
+
+        </div>
+        <div class="sizer">
+
+        </div>
+
+        <!-- ======================= footer ==================== -->
+        <div class="footer flex between">
+            <div class="timerOpener flex">
+                <p class="HoerTextButton" onclick="showWindow('linktoolFull')" id="frontTimeDisplay">Loding sites...</p>
+                <button id="paduseButton" onclick="pauseTimer(paduseButton,resumeButton)"
+                    class="pauseButton">PAUSE</button>
+                <button id="resumeButton" class="d-none" onclick="resume(paduseButton,resumeButton)">RESUME</button>
+            </div>
+            <p onclick="OpenYoutubeTutorial()" class="HoerTextButton onlyShowHover">How To Use This Tool</p>
+        </div>
+
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
