@@ -324,9 +324,12 @@ function startOpenLinks(n, x) {
 function createRandomVal(min, max) {
     min = min * 1;
     max = max * 1;
-    let minu = Math.floor(Math.random() * (max - min + 1) + min) * 60; // Get random minutes
-    let sec = Math.floor(Math.random() * (55))
-    return minu + sec; // Return value in seconds
+    // Convert minutes to seconds directly - no need to multiply by 60 again
+    let minSeconds = min * 60;
+    let maxSeconds = max * 60;
+    let randomSeconds = Math.floor(Math.random() * (maxSeconds - minSeconds + 1) + minSeconds);
+    console.log(`Creating random timer: ${min}-${max} minutes = ${minSeconds}-${maxSeconds} seconds = ${randomSeconds} seconds (${Math.floor(randomSeconds / 60)}:${randomSeconds % 60})`);
+    return randomSeconds; // Return value in seconds
 }
 
 function openLink(link) {

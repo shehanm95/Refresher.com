@@ -1,0 +1,99 @@
+#workIntervalTimer {
+    width: min(600px, 90%);
+    margin: 0 auto;
+    padding: 25px;
+    border: 3px solid var(--buttonColor);
+    border-radius: 15px;
+    background-color: rgba(30, 30, 30, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.timerHeader {
+    width: 100%;
+}
+
+.timerTitle {
+    font-size: clamp(16px, 2.2vmin, 22px);
+    font-weight: 600;
+}
+
+.smallBtn {
+    height: 28px;
+    padding: 0 12px;
+    border-radius: 6px;
+    border: none;
+    background-color: var(--buttonColor);
+    color: #fff;
+}
+
+.timerSettings {
+    width: 100%;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.timerSetting {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.timerSetting label {
+    opacity: 0.9;
+}
+
+.timerInput {
+    width: 80px;
+    height: 32px;
+    border-radius: 6px;
+    border: 1px solid #000;
+    background-color: rgb(54, 54, 54);
+    color: #fff;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.timerDisplayArea {
+    width: 100%;
+}
+
+.timerLabel {
+    font-size: clamp(14px, 2vmin, 18px);
+    opacity: 0.9;
+}
+
+.timerDisplay {
+    font-size: clamp(36px, 8vmin, 80px);
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.mainBtn {
+    height: 36px;
+    min-width: 160px;
+    border-radius: 8px;
+    background-color: var(--buttonColor);
+    color: #fff;
+    border: none;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.between {
+    justify-content: space-between;
+}

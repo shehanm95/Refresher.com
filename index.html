@@ -7,6 +7,7 @@
     <title>Refresher</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="icon-01.ico" type="image/x-icon">
+    <link rel="stylesheet" href="work-interval-timer.css">
 </head>
 
 <body>
@@ -137,10 +138,36 @@
         <div id="quickLinks" class="quickLinks centerHolder flex mt-25">
             <!-- QUICK LINK HOLDER -->
 
-
-
-
         </div>
+
+        <!-- INSERT_YOUR_CODE -->
+
+        <div id="workIntervalTimer" class="centerHolder flex column mt-25">
+            <div class="timerHeader flex between align-center mb-10">
+                <div class="timerTitle">Work/Interval Timer</div>
+                <button id="stopTimersBtn" class="smallBtn">Stop Timers</button>
+                <button id="startTimersBtn" class="smallBtn d-none">Start Timers</button>
+            </div>
+            <div class="timerSettings flex between mb-10">
+                <div class="timerSetting">
+                    <label for="workTimeInput">Work Time</label>
+                    <input id="workTimeInput" type="text" maxlength="5" value="30:00" class="timerInput">
+                </div>
+                <div class="timerSetting">
+                    <label for="intervalTimeInput">Interval Time</label>
+                    <input id="intervalTimeInput" type="text" maxlength="5" value="10:00" class="timerInput">
+                </div>
+            </div>
+            <div class="timerDisplayArea flex column align-center">
+                <div id="timerLabel" class="timerLabel">Working Time</div>
+                <div id="timerDisplay" class="timerDisplay">30:00</div>
+                <button id="takeRestBtn" class="mainBtn d-none mt-10">Take a Rest</button>
+                <button id="startWorkBtn" class="mainBtn d-none mt-10">Start Work</button>
+            </div>
+            <audio id="timerAlarm" preload="auto"></audio>
+        </div>
+
+
         <div class="sizer">
 
         </div>
@@ -157,7 +184,7 @@
         </div>
 
     </div>
-
+    <script src="work-interval-timer.js"></script>
     <script src="main.js"></script>
 </body>
 
