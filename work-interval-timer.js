@@ -90,6 +90,7 @@
     function ring() {
         try {
             alarm.currentTime = 0;
+            alarm.loop = true; // Enable looping
             alarm.play();
             alarmPlaying = true;
         } catch (e) { }
@@ -99,6 +100,7 @@
         try {
             alarm.pause();
             alarm.currentTime = 0;
+            alarm.loop = false; // Disable looping
             alarmPlaying = false;
         } catch (e) { }
     }
@@ -125,9 +127,8 @@
         secondsRemaining = parseTimeStringToSeconds(workTimeInput.value || "30:00");
         setLabelAndButtons();
         timerDisplay.textContent = formatSeconds(secondsRemaining);
-        if (tickIntervalId) {
-            startTicking();
-        }
+        // Always start ticking when switching modes
+        startTicking();
     }
 
     function switchToRest() {
@@ -136,9 +137,8 @@
         secondsRemaining = parseTimeStringToSeconds(intervalTimeInput.value || "10:00");
         setLabelAndButtons();
         timerDisplay.textContent = formatSeconds(secondsRemaining);
-        if (tickIntervalId) {
-            startTicking();
-        }
+        // Always start ticking when switching modes
+        startTicking();
     }
 
     // Button handlers
@@ -156,7 +156,10 @@
     // Initialize from inputs
     loadSavedTimes(); // Load saved values first
     switchToWork();
-    startTimers(); // Start timers automatically on page load
+    // Auto-start the work timer when page loads
+    stopTimersBtn.classList.remove("d-none");
+    startTimersBtn.classList.add("d-none");
+    startTicking();
 })();
 
 
