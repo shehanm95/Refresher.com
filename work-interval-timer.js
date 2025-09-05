@@ -39,6 +39,7 @@
     let secondsRemaining = 0;
     let tickIntervalId = null;
     let alarmPlaying = false;
+    let startTime = null;
 
     function parseTimeStringToSeconds(value) {
         if (!value) return 0;
@@ -70,14 +71,20 @@
 
     function startTicking() {
         clearInterval(tickIntervalId);
+        startTime = Date.now();
+
         tickIntervalId = setInterval(() => {
-            secondsRemaining -= 1;
-            if (secondsRemaining <= 0) {
+            const elapsed = Math.floor((Date.now() - startTime) / 1000);
+            const remaining = Math.max(0, secondsRemaining - elapsed);
+
+            if (remaining <= 0) {
                 ring();
+                clearInterval(tickIntervalId);
+                tickIntervalId = null;
                 // Don't automatically switch modes - wait for user to press button
             }
-            timerDisplay.textContent = formatSeconds(Math.max(0, secondsRemaining));
-        }, 1000);
+            timerDisplay.textContent = formatSeconds(remaining);
+        }, 100); // Update more frequently for better accuracy
     }
 
     function ring() {
@@ -99,6 +106,7 @@
     function stopTimers() {
         clearInterval(tickIntervalId);
         tickIntervalId = null;
+        stopAlarm(); // Stop any playing alarm
         stopTimersBtn.classList.add("d-none");
         startTimersBtn.classList.remove("d-none");
     }
@@ -148,7 +156,7 @@
     // Initialize from inputs
     loadSavedTimes(); // Load saved values first
     switchToWork();
-    startTimers();
+    startTimers(); // Start timers automatically on page load
 })();
 
 

@@ -91,7 +91,7 @@ function createQuickLinkElement(linkObj, id) {
         titleDisplay = title.substring(0, 6) + "..";
     }
 
-    let quickLinkObj = `  <div id="id" class="fullQuickLink" title="${title}">
+    let quickLinkObj = `  <div id="id" class="fullQuickLink" title="${title}" onclick="openQuickLink('${link}')">
         <div class="quickLink m-10">
             <div class="closeButtonHolder">
                 <button class="closeButton small" onClick="deleteQuickLink(${id})" >X</button>
@@ -175,6 +175,10 @@ function openYoutube() {
     }
     window.open(youtubeUrl, "_blank")
 
+}
+
+function openQuickLink(link) {
+    window.open(link, "_blank");
 }
 
 
